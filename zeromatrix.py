@@ -20,6 +20,21 @@ Make sure it works with non-square matrices:
 def zero_matrix(matrix):
     """Given an NxM matrix, for cells=0, set their row and column to zeroes."""
 
+    zero_indices = []
+
+    for row in matrix:
+        if 0 in row:
+            for i, item in enumerate(row):
+                if item == 0:
+                    zero_indices.append(i)
+                row[i] = 0
+
+    for index in zero_indices:
+        for row in matrix:
+            row[index] = 0
+
+    return matrix
+
 
 if __name__ == "__main__":
     import doctest
